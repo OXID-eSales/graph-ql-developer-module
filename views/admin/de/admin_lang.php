@@ -19,8 +19,9 @@ $sLangName = 'Deutsch';
 $aLang = [
     'charset'                               =>  'UTF-8',
 
-    'OXPS_GRAPHQL'                          =>  'GraphQL',
-    'OXPS_GRAPHIQL'                         =>  'Graph<i>i</i>QL',
-    'OXPS_VOYAGER'                          =>  'Voyager',
+    'OE_GRAPHQL'                            =>  'GraphQL',
+    'OE_GRAPHIQL'                           =>  'Graph<i>i</i>QL',
+    'OE_QUERIES'                            =>  'Query-Inspektion',
+    'OE_MUTATIONS'                          =>  'Mutation-Inspektion',
 
 ];

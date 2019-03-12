@@ -46,7 +46,8 @@ $aModule = [
     'controllers' => [
         // Admin Controller
         'graphiql'      => OxidEsales\GraphQl\Controller\Admin\GraphiQL::class,
-        'voyager'      => OxidEsales\GraphQl\Controller\Admin\Voyager::class,
+        'queries'      => OxidEsales\GraphQl\Controller\Admin\Queries::class,
+        'mutations'      => OxidEsales\GraphQl\Controller\Admin\Mutations::class
     ],
     'templates'   => [
         //Admin Template

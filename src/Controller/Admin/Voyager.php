@@ -34,6 +34,7 @@ class Voyager extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetail
      */
     protected $_sThisTemplate = 'voyager.tpl';
 
+    protected $rootType = '';
     /**
      * Render
      *
@@ -48,6 +49,7 @@ class Voyager extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetail
         $devToolsService = $container->get(DeveloperToolsServiceInterface::class);
         $this->_aViewData["bearer"] = $devToolsService->getAuthTokenString();
         $this->_aViewData["shopurl"] = $devToolsService->getShopUrl();
+        $this->_aViewData["roottype"] = $this->rootType;
 
         return $this->_sThisTemplate;
     }

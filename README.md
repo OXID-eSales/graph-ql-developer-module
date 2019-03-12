@@ -4,7 +4,8 @@ Provides some tools for GraphQL in the admin backend
 
 If this module is installed in the shop, there is a
 a `GraphQL` menu entry in the admin backend. This
-has two submenu entries: `GraphIQL` and `Voyager`.
+has three submenu entries: `GraphIQL` and to inspection
+entries for queries and mutations.
 
 ## GraphIQL
 
@@ -22,7 +23,7 @@ never can get a developer token through a GraphQL query).
 That also means, you can't test permissions with this
 console.
 
-## Voyager
+## Queries and mutations
 
-The Voyager gives you a graphical representation of
-the GraphQL schema installed in your OXID eShop.
+These entries give you a nice graphical representations of
+the GraphQL queries and mutations installed in your OXID eShop.

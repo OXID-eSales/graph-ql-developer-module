@@ -51,7 +51,8 @@
             introspection: introspectionProvider,
             hideSettings: false,
             displayOptions: {
-                sortByAlphabet: false
+                sortByAlphabet: false,
+                rootType: '[{$roottype}]'
             }
         })
     </script>
