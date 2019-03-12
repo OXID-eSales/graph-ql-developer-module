@@ -1,0 +1,15 @@
+services:
+
+  _defaults:
+    public: false
+    autowire: true
+
+  OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface:
+    class: OxidEsales\GraphQl\Service\DeveloperToolsService
+    public: true
+
+  OxidEsales\GraphQl\Service\DeveloperPermissionsProvider:
+    class: OxidEsales\GraphQl\Service\PermissionsProvider
+    calls:
+      - ['addPermission', ['developer', '*']]
+    tags: ['graphql_permissions_provider']

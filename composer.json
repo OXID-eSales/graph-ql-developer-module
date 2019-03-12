@@ -1,0 +1,30 @@
+{
+  "name": "oxid-esales/graphql-developer",
+  "description": "OXID GraphQL developer tools",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop"],
+  "homepage": "https://www.oxid-esales.com",
+  "license": ["GPL-3.0", "proprietary"],
+  "extra": {
+    "oxideshop": {
+      "target-directory": "oe/graphql-developer",
+      "blacklist-filter": [
+        "src/**/*.php",
+        "tests/**/*.php"
+      ]
+    }
+  },
+  "version": "0.0.1",
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6"
+  },
+  "autoload": {
+    "psr-4": {
+      "OxidEsales\\GraphQl\\": "src",
+      "OxidEsales\\GraphQl\\Tests\\": "tests"
+    }
+  }
+}
