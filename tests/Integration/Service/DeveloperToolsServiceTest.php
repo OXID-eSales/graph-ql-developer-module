@@ -8,23 +8,24 @@
 namespace OxidEsales\GraphQl\Tests\Integration\Service;
 
 
-use OxidEsales\EshopCommunity\Tests\Integration\Internal\TestContainerFactory;
 use OxidEsales\GraphQl\DataObject\Token;
 use OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface;
 use OxidEsales\GraphQl\Service\KeyRegistryInterface;
 use OxidEsales\GraphQl\Service\PermissionsServiceInterface;
+use OxidEsales\GraphQl\Tests\Integration\ContainerTrait;
 use OxidEsales\TestingLibrary\UnitTestCase;
 use Symfony\Component\DependencyInjection\Container;
 
 class DeveloperToolsServiceTest extends UnitTestCase
 {
+    use ContainerTrait;
+
     /** @var  Container $container */
     private $container;
 
     public function setUp()
     {
-        $containerFactory = new TestContainerFactory();
-        $this->container = $containerFactory->create();
+        $this->container = $this->createUncompiledContainer();
         $this->container->compile();
     }
 
