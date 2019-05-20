@@ -49,7 +49,7 @@
         // Render <Voyager />
         GraphQLVoyager.init(document.getElementById('voyager'), {
             introspection: introspectionProvider,
-            hideSettings: false,
+            hideSettings: true,
             displayOptions: {
                 sortByAlphabet: false,
                 rootType: '[{$roottype}]'
