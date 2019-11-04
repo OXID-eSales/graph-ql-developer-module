@@ -35,9 +35,9 @@ $aModule = [
     'extend'      => [],
     'controllers' => [
         // Admin Controller
-        'graphiql'      => OxidEsales\GraphQl\Controller\Admin\GraphiQL::class,
-        'queries'      => OxidEsales\GraphQl\Controller\Admin\Queries::class,
-        'mutations'      => OxidEsales\GraphQl\Controller\Admin\Mutations::class
+        'graphiql'      => OxidEsales\GraphQL\Controller\Admin\GraphiQL::class,
+        'queries'      => OxidEsales\GraphQL\Controller\Admin\Queries::class,
+        'mutations'      => OxidEsales\GraphQL\Controller\Admin\Mutations::class
     ],
     'templates'   => [
         //Admin Template

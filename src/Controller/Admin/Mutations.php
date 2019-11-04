@@ -5,7 +5,7 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQl\Controller\Admin;
+namespace OxidEsales\GraphQL\Controller\Admin;
 
 class Mutations extends Voyager
 {

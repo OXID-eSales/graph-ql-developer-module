@@ -5,15 +5,10 @@
  */
 
 
-namespace OxidEsales\GraphQl\Controller\Admin;
+namespace OxidEsales\GraphQL\Controller\Admin;
 
-use OxidEsales\EshopCommunity\Internal\Application\ContainerFactory;
-
-use OxidEsales\GraphQl\DataObject\TokenRequest;
-use OxidEsales\GraphQl\Service\AuthenticationServiceInterface;
+use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface;
-use OxidEsales\GraphQl\Service\KeyRegistryInterface;
-use OxidEsales\GraphQl\Utility\AuthConstants;
 
 /**
  * GraphiQL Admin Tool
@@ -37,10 +32,10 @@ class GraphiQL extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetai
         parent::render();
 
         $container = ContainerFactory::getInstance()->getContainer();
-        /** @var DeveloperToolsServiceInterface $authService */
-        $authService = $container->get(DeveloperToolsServiceInterface::class);
-        $this->_aViewData["bearer"] = $authService->getAuthTokenString();
-        $this->_aViewData["shopurl"] = $authService->getShopUrl();
+        /** @var DeveloperToolsServiceInterface $developerToolsService */
+        $developerToolsService = $container->get(DeveloperToolsServiceInterface::class);
+        $this->_aViewData["bearer"] = $developerToolsService->getAuthTokenString();
+        $this->_aViewData["shopurl"] = $developerToolsService->getShopUrl();
 
         return $this->_sThisTemplate;
     }
