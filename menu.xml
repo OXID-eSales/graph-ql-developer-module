@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="ISO-8859-15"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <OX>
     <OXMENU id="NAVIGATION_ESHOPADMIN">
-        <MAINMENU id="OE_GRAPHQL" cl="graphql" clparam="visible">
-            <SUBMENU id="OE_GRAPHIQL" cl="graphiql" rights="malladmin"></SUBMENU>
-            <SUBMENU id="OE_QUERIES" cl="queries" rights="malladmin"></SUBMENU>
-            <SUBMENU id="OE_MUTATIONS" cl="mutations" rights="malladmin"></SUBMENU>
+        <MAINMENU id="GRAPHQL" cl="graphql" clparam="visible">
+            <SUBMENU id="GRAPHQL_CONSOLE" cl="graphiql" rights="malladmin"></SUBMENU>
+            <SUBMENU id="GRAPHQL_QUERIES" cl="queries" rights="malladmin"></SUBMENU>
+            <SUBMENU id="GRAPHQL_MUTATIONS" cl="mutations" rights="malladmin"></SUBMENU>
         </MAINMENU>
     </OXMENU>
 </OX>

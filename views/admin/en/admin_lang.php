@@ -14,14 +14,15 @@
  * @version     OXID eSales GraphQL
  */
 
-$sLangName = 'English';
+$sLangName = 'Deutsch';
 
 $aLang = [
     'charset'                               =>  'UTF-8',
 
-    'OE_GRAPHQL'                            =>  'GraphQL',
-    'OE_GRAPHIQL'                           =>  'Graph<i>i</i>QL',
-    'OE_QUERIES'                            =>  'Inspect queries',
-    'OE_MUTATIONS'                          =>  'Inspect mutations',
-];
+    'GRAPHQL'                    =>  'GraphQL',
+    'GRAPHQL_QUERIES'            =>  'Query inspection',
+    'GRAPHQL_MUTATIONS'          =>  'Mutation inspection',
+    'GRAPHQL_CONSOLE'            =>  'Console',
+    'GRAPHQL_LANGUAGE_SELECT'    =>  'Select language',
 
+];

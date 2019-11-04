@@ -5,46 +5,35 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQl\Service;
+namespace OxidEsales\GraphQL\Developer\Service;
 
-use OxidEsales\GraphQl\DataObject\TokenRequest;
-use OxidEsales\GraphQl\Utility\AuthConstants;
+use OxidEsales\GraphQL\Base\Service\LegacyServiceInterface;
 
 class DeveloperToolsService implements DeveloperToolsServiceInterface
 {
 
-    /** @var AuthenticationServiceInterface  */
+    /** @var DeveloperAuthenticationServiceInterface  */
     private $authService;
-    /** @var EnvironmentServiceInterface  */
-    private $envService;
-    /** @var KeyRegistryInterface  */
-    private $keyRegistry;
+
+    /** @var LegacyServiceInterface */
+    private $legacyService;
 
     public function __construct(
-        AuthenticationServiceInterface $authService,
-        EnvironmentServiceInterface $envService,
-        KeyRegistryInterface $keyRegistry)
+        DeveloperAuthenticationServiceInterface $authService,
+        LegacyServiceInterface $legacyService)
     {
         $this->authService = $authService;
-        $this->envService = $envService;
-        $this->keyRegistry = $keyRegistry;
-
+        $this->legacyService = $legacyService;
     }
 
     public function getAuthTokenString()
     {
-        $tokenRequest = new TokenRequest();
-        $tokenRequest->setGroup(AuthConstants::USER_GROUP_DEVELOPER);
-        $tokenRequest->setLang($this->envService->getDefaultLanguage());
-        $tokenRequest->setShopid($this->envService->getDefaultShopId());
-
-        $token = $this->authService->getToken($tokenRequest);
-        return $token->getJwt($this->keyRegistry->getSignatureKey());
+        return (string) $this->authService->createDeveloperToken();
 
     }
 
     public function getShopUrl()
     {
-        return $this->envService->getShopUrl();
+        return $this->legacyService->getShopUrl();
     }
 }

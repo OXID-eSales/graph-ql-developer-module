@@ -4,7 +4,7 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQl\Service;
+namespace OxidEsales\GraphQL\Developer\Service;
 
 interface DeveloperToolsServiceInterface
 {

@@ -1,10 +1,11 @@
+[{include file="headitem.tpl" title="GRAPHQL_CONSOLE"|oxmultilangassign}]
 [{assign var="oConfig" value=$oView->getConfig()}]
 <head>
     <title>OXID GraphQL</title>
     <meta http-equiv="Content-Type" content="text/html; charset=[{oxmultilang ident='charset'}]">
 
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="[{$oViewConf->getModuleUrl('oe/graphql-developer','out/src/js/react.production.min.js')}]"></script>
+    <script src="[{$oViewConf->getModuleUrl('oe/graphql-developer','out/src/js/react-dom.production.min.js')}]"></script>
     <script src="https://cdn.jsdelivr.net/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
     <script src="https://cdn.jsdelivr.net/fetch/0.9.0/fetch.min.js"></script>
     <script src="[{$oViewConf->getModuleUrl('oe/graphql-developer','out/src/js/graphiql.min.js')}]"></script>
@@ -17,6 +18,13 @@
         You need to enable JavaScript to run this app.
     </noscript>
 
+    <div id="nav">&nbsp;[{oxmultilang ident="GRAPHQL_LANGUAGE_SELECT"}]:&nbsp;
+        <select id="langselect" class="editinput">
+            [{foreach from=$languages item=lang}]
+            <option value="[{$lang->id}]" [{if $lang->selected}]SELECTED[{/if}]>[{$lang->name}]</option>
+            [{/foreach}]
+        </select>
+    </div>
     <div id="graphiql">Loading...</div>
 
     <script>
@@ -60,8 +68,11 @@
         // use fetch, and could instead implement graphQLFetcher however you like,
         // as long as it returns a Promise or Observable.
         function graphQLFetcher(graphQLParams) {
+            var langselect = document.getElementById('langselect');
+            var langvalue = langselect.options[langselect.selectedIndex].value;
+            var url = `[{$shopurl}]/graphql/?lang=` + langvalue;
             // This expects a GraphQL server at the path /graphql.
-            return fetch(`[{$shopurl}]/graphql/`, {
+            return fetch(url, {
                 method: 'post',
                 headers: {
                 'Accept': 'application/json',

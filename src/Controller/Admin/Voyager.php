@@ -5,13 +5,10 @@
  */
 
 
-namespace OxidEsales\GraphQl\Controller\Admin;
+namespace OxidEsales\GraphQL\Developer\Controller\Admin;
 
-use OxidEsales\EshopCommunity\Internal\Application\ContainerFactory;
-use OxidEsales\GraphQl\DataObject\TokenRequest;
-use OxidEsales\GraphQl\Service\AuthenticationServiceInterface;
-use OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface;
-use OxidEsales\GraphQl\Utility\AuthConstants;
+use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
+use OxidEsales\GraphQl\Developer\Service\DeveloperToolsServiceInterface;
 
 /**
  * Voyager Admin Tool

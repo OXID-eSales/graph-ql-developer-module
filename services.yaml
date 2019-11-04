@@ -4,12 +4,13 @@ services:
     public: false
     autowire: true
 
-  OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface:
-    class: OxidEsales\GraphQl\Service\DeveloperToolsService
+  OxidEsales\GraphQL\Developer\Service\DeveloperToolsServiceInterface:
+    class: OxidEsales\GraphQL\Developer\Service\DeveloperToolsService
     public: true
 
-  OxidEsales\GraphQl\Service\DeveloperPermissionsProvider:
-    class: OxidEsales\GraphQl\Service\PermissionsProvider
-    calls:
-      - ['addPermission', ['developer', '*']]
-    tags: ['graphql_permissions_provider']
+  OxidEsales\GraphQL\Developer\Service\DeveloperAuthenticationServiceInterface:
+    class: OxidEsales\GraphQL\Developer\Service\DeveloperAuthenticationService
+
+  OxidEsales\GraphQL\Developer\Service\DeveloperAuthorizationEventSubscriber:
+    class: OxidEsales\GraphQL\Developer\Service\DeveloperAuthorizationEventSubscriber
+    tags: ['kernel.event_subscriber']

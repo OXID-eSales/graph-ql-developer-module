@@ -19,9 +19,10 @@ $sLangName = 'Deutsch';
 $aLang = [
     'charset'                               =>  'UTF-8',
 
-    'OE_GRAPHQL'                            =>  'GraphQL',
-    'OE_GRAPHIQL'                           =>  'Graph<i>i</i>QL',
-    'OE_QUERIES'                            =>  'Query-Inspektion',
-    'OE_MUTATIONS'                          =>  'Mutation-Inspektion',
+    'GRAPHQL'                    =>  'GraphQL',
+    'GRAPHQL_QUERIES'            =>  'Query-Inspektion',
+    'GRAPHQL_MUTATIONS'          =>  'Mutation-Inspektion',
+    'GRAPHQL_CONSOLE'            =>  'Konsole',
+    'GRAPHQL_LANGUAGE_SELECT'    =>  'Sprachauswahl',
 
 ];
