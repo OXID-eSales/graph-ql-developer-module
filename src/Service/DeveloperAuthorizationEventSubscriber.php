@@ -4,9 +4,10 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQL\Service;
+namespace OxidEsales\GraphQL\Developer\Service;
 
-use OxidEsales\GraphQL\Event\BeforeAuthorizationEvent;
+use OxidEsales\GraphQL\Base\Event\BeforeAuthorizationEvent;
+use OxidEsales\GraphQL\Base\Service\AuthenticationService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class DeveloperAuthorizationEventSubscriber implements EventSubscriberInterface
@@ -41,6 +42,6 @@ class DeveloperAuthorizationEventSubscriber implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        [BeforeAuthorizationEvent::NAME => 'handleDeveloperAuthorization'];
+        return [BeforeAuthorizationEvent::NAME => 'handleDeveloperAuthorization'];
     }
 }

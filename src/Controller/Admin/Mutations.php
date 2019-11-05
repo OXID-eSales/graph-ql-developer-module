@@ -5,14 +5,14 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQL\Controller\Admin;
+namespace OxidEsales\GraphQL\Developer\Controller\Admin;
 
 class Mutations extends Voyager
 {
     public function __construct()
     {
         parent::__construct();
-        $this->rootType = 'mutation';
+        $this->rootType = 'Mutation';
     }
 
 }

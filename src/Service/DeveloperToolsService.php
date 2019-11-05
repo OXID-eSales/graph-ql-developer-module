@@ -5,14 +5,14 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQL\Service;
+namespace OxidEsales\GraphQL\Developer\Service;
 
-use OxidEsales\EshopCommunity\Internal\Transition\Utility\ContextInterface;
+use OxidEsales\GraphQL\Base\Service\LegacyServiceInterface;
 
 class DeveloperToolsService implements DeveloperToolsServiceInterface
 {
 
-    /** @var AuthenticationServiceInterface  */
+    /** @var DeveloperAuthenticationServiceInterface  */
     private $authService;
 
     /** @var LegacyServiceInterface */

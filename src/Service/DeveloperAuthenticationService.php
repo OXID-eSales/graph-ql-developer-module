@@ -4,9 +4,10 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQL\Service;
+namespace OxidEsales\GraphQL\Developer\Service;
 
 use Lcobucci\JWT\Token;
+use OxidEsales\GraphQL\Base\Service\AuthenticationService;
 
 class DeveloperAuthenticationService extends AuthenticationService implements DeveloperAuthenticationServiceInterface
 {

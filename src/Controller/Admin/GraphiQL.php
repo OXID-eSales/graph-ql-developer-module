@@ -5,10 +5,11 @@
  */
 
 
-namespace OxidEsales\GraphQL\Controller\Admin;
+namespace OxidEsales\GraphQL\Developer\Controller\Admin;
 
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface;
+use OxidEsales\GraphQL\Developer\Service\DeveloperToolsServiceInterface;
+
 
 /**
  * GraphiQL Admin Tool

@@ -5,9 +5,10 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GraphQL\Tests\Integration\Service;
+namespace OxidEsales\GraphQL\Developer\Tests\Integration\Service;
 
 
+use Lcobucci\JWT\Parser;
 use OxidEsales\EshopCommunity\Tests\Integration\Internal\TestContainerFactory;
 use OxidEsales\GraphQl\DataObject\Token;
 use OxidEsales\GraphQL\Service\AuthorizationServiceInterface;
@@ -34,9 +35,8 @@ class DeveloperToolsServiceTest extends UnitTestCase
         /** @var DeveloperToolsServiceInterface $developerToolsService */
         $developerToolsService = $this->container->get(DeveloperToolsServiceInterface::class);
         $tokenString = $developerToolsService->getAuthTokenString();
-        $token = new Parser
-        $authorizationService = $this->container->get(AuthorizationServiceInterface::class);
-        $authorizationService->setToken($tokenString);
+        $token = (new Parser())->parse($tokenString);
+
 
         /** @var KeyRegistryInterface $keyRegistry */
         $keyRegistry = $this->container->get(KeyRegistryInterface::class);

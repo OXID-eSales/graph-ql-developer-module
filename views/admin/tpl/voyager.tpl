@@ -3,8 +3,8 @@
     <title>OXID GraphQL Voyager</title>
     <meta http-equiv="Content-Type" content="text/html; charset=[{oxmultilang ident='charset'}]">
 
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="[{$oViewConf->getModuleUrl('oe/graphql-developer','out/src/js/react.production.min.js')}]"></script>
+    <script src="[{$oViewConf->getModuleUrl('oe/graphql-developer','out/src/js/react-dom.production.min.js')}]"></script>
     <script src="https://cdn.jsdelivr.net/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
     <script src="https://cdn.jsdelivr.net/fetch/0.9.0/fetch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/graphql-voyager/dist/voyager.min.js"></script>
@@ -26,7 +26,7 @@
         // Voyager passes introspectionQuery as an argument for this function
         function introspectionProvider(introspectionQuery) {
             // This expects a GraphQL server at the path /graphql.
-            return fetch(`[{$shopurl}]/graphql/`, {
+            return fetch(`[{$shopurl}]graphql/`, {
                 method: 'post',
                 headers: {
                 'Accept': 'application/json',

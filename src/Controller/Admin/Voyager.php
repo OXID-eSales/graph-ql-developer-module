@@ -5,10 +5,10 @@
  */
 
 
-namespace OxidEsales\GraphQL\Controller\Admin;
+namespace OxidEsales\GraphQL\Developer\Controller\Admin;
 
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
-use OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface;
+use OxidEsales\GraphQl\Developer\Service\DeveloperToolsServiceInterface;
 
 /**
  * Voyager Admin Tool

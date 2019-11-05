@@ -1,6 +1,6 @@
 <?php
 
-namespace OxidEsales\GraphQL\Service;
+namespace OxidEsales\GraphQL\Developer\Service;
 
 interface DeveloperAuthenticationServiceInterface
 {
