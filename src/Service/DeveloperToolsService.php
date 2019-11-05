@@ -28,7 +28,7 @@ class DeveloperToolsService implements DeveloperToolsServiceInterface
 
     public function getAuthTokenString()
     {
-        return $this->authService->createDeveloperToken();
+        return (string) $this->authService->createDeveloperToken();
 
     }
 

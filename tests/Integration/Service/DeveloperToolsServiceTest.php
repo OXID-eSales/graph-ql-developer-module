@@ -10,10 +10,9 @@ namespace OxidEsales\GraphQL\Developer\Tests\Integration\Service;
 
 use Lcobucci\JWT\Parser;
 use OxidEsales\EshopCommunity\Tests\Integration\Internal\TestContainerFactory;
+use OxidEsales\GraphQL\Base\Service\AuthorizationServiceInterface;
 use OxidEsales\GraphQl\DataObject\Token;
-use OxidEsales\GraphQL\Service\AuthorizationServiceInterface;
-use OxidEsales\GraphQl\Service\DeveloperToolsServiceInterface;
-use OxidEsales\GraphQl\Service\KeyRegistryInterface;
+use OxidEsales\GraphQL\Developer\Service\DeveloperToolsServiceInterface;
 use OxidEsales\GraphQl\Service\PermissionsServiceInterface;
 use OxidEsales\TestingLibrary\UnitTestCase;
 use Symfony\Component\DependencyInjection\Container;
@@ -37,20 +36,11 @@ class DeveloperToolsServiceTest extends UnitTestCase
         $tokenString = $developerToolsService->getAuthTokenString();
         $token = (new Parser())->parse($tokenString);
 
+        $authorizationService = $this->container->get(AuthorizationServiceInterface::class);
+        $authorizationService->setToken($token);
 
-        /** @var KeyRegistryInterface $keyRegistry */
-        $keyRegistry = $this->container->get(KeyRegistryInterface::class);
-        $tokenString = $developerToolsService->getAuthTokenString();
-        $token = new Token();
-        $key = $keyRegistry->getSignatureKey();
-        $token->setJwt($tokenString, $key);
+        $this->assertTrue($authorizationService->isAllowed('anyright'));
 
-        /** @var PermissionsServiceInterface $permissionsService */
-        $permissionsService = $this->container->get(PermissionsServiceInterface::class);
-
-        $permissionsService->checkPermission($token, "thisshouldallowanypermission");
-
-        $this->assertTrue('NoExceptionThrown' == 'NoExceptionThrown');
     }
 
     public function testDeveloperShopurl()
