@@ -7,6 +7,7 @@
 
 namespace OxidEsales\GraphQL\Developer\Controller\Admin;
 
+use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
 use OxidEsales\GraphQL\Developer\Service\DeveloperToolsServiceInterface;
 
@@ -37,6 +38,7 @@ class GraphiQL extends \OxidEsales\Eshop\Application\Controller\Admin\AdminDetai
         $developerToolsService = $container->get(DeveloperToolsServiceInterface::class);
         $this->_aViewData["bearer"] = $developerToolsService->getAuthTokenString();
         $this->_aViewData["shopurl"] = $developerToolsService->getShopUrl();
+        $this->_aViewData["languages"] = Registry::getLang()->getAdminTplLanguageArray();
 
         return $this->_sThisTemplate;
     }

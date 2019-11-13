@@ -1,3 +1,4 @@
+[{include file="headitem.tpl" title="GRAPHQL_CONSOLE"|oxmultilangassign}]
 [{assign var="oConfig" value=$oView->getConfig()}]
 <head>
     <title>OXID GraphQL</title>
@@ -17,6 +18,13 @@
         You need to enable JavaScript to run this app.
     </noscript>
 
+    <div id="nav">&nbsp;[{oxmultilang ident="GRAPHQL_LANGUAGE_SELECT"}]:&nbsp;
+        <select id="langselect" class="editinput">
+            [{foreach from=$languages item=lang}]
+            <option value="[{$lang->id}]" [{if $lang->selected}]SELECTED[{/if}]>[{$lang->name}]</option>
+            [{/foreach}]
+        </select>
+    </div>
     <div id="graphiql">Loading...</div>
 
     <script>
@@ -60,8 +68,11 @@
         // use fetch, and could instead implement graphQLFetcher however you like,
         // as long as it returns a Promise or Observable.
         function graphQLFetcher(graphQLParams) {
+            var langselect = document.getElementById('langselect');
+            var langvalue = langselect.options[langselect.selectedIndex].value;
+            var url = `[{$shopurl}]/graphql/?lang=` + langvalue;
             // This expects a GraphQL server at the path /graphql.
-            return fetch(`[{$shopurl}]/graphql/`, {
+            return fetch(url, {
                 method: 'post',
                 headers: {
                 'Accept': 'application/json',

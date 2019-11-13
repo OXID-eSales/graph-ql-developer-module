@@ -6,11 +6,12 @@
 
 namespace OxidEsales\GraphQL\Developer\Service;
 
+use OxidEsales\EshopCommunity\Internal\Framework\Event\AbstractShopAwareEventSubscriber;
 use OxidEsales\GraphQL\Base\Event\BeforeAuthorizationEvent;
 use OxidEsales\GraphQL\Base\Service\AuthenticationService;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class DeveloperAuthorizationEventSubscriber implements EventSubscriberInterface
+class DeveloperAuthorizationEventSubscriber extends AbstractShopAwareEventSubscriber
 {
     public function handleDeveloperAuthorization(BeforeAuthorizationEvent $event) {
 
