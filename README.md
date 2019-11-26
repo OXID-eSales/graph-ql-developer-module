@@ -23,6 +23,13 @@ never can get a developer token through a GraphQL query).
 That also means, you can't test permissions with this
 console.
 
+## Installation
+
+```
+composer config repositories.oxid-esales/graphql-developer vcs https://github.com/OXID-eSales/graphql-developer-module
+composer require oxid-esales/graphql-developer
+```
+
 ## Queries and mutations
 
 These entries give you a nice graphical representations of
