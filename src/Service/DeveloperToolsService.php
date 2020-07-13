@@ -7,7 +7,7 @@
 
 namespace OxidEsales\GraphQL\Developer\Service;
 
-use OxidEsales\GraphQL\Base\Service\LegacyServiceInterface;
+use OxidEsales\GraphQL\Base\Service\Legacy;
 
 class DeveloperToolsService implements DeveloperToolsServiceInterface
 {
@@ -15,12 +15,12 @@ class DeveloperToolsService implements DeveloperToolsServiceInterface
     /** @var DeveloperAuthenticationServiceInterface  */
     private $authService;
 
-    /** @var LegacyServiceInterface */
+    /** @var Legacy */
     private $legacyService;
 
     public function __construct(
         DeveloperAuthenticationServiceInterface $authService,
-        LegacyServiceInterface $legacyService)
+        Legacy $legacyService)
     {
         $this->authService = $authService;
         $this->legacyService = $legacyService;

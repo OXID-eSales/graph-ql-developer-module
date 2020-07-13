@@ -7,16 +7,16 @@
 namespace OxidEsales\GraphQL\Developer\Service;
 
 use OxidEsales\EshopCommunity\Internal\Framework\Event\AbstractShopAwareEventSubscriber;
-use OxidEsales\GraphQL\Base\Event\BeforeAuthorizationEvent;
-use OxidEsales\GraphQL\Base\Service\AuthenticationService;
+use OxidEsales\GraphQL\Base\Event\BeforeAuthorization;
+use OxidEsales\GraphQL\Base\Service\Authentication;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class DeveloperAuthorizationEventSubscriber extends AbstractShopAwareEventSubscriber
 {
-    public function handleDeveloperAuthorization(BeforeAuthorizationEvent $event) {
+    public function handleDeveloperAuthorization(BeforeAuthorization $event) {
 
         $token = $event->getToken();
-        if ($token->getClaim(AuthenticationService::CLAIM_GROUP) == DeveloperAuthenticationService::DEVELOPER_GROUP) {
+        if ($token->getClaim(Authentication::CLAIM_GROUP) == DeveloperAuthentication::DEVELOPER_GROUP) {
             $event->setAuthorized(true);
             $event->stopPropagation();
         }
@@ -43,6 +43,6 @@ class DeveloperAuthorizationEventSubscriber extends AbstractShopAwareEventSubscr
      */
     public static function getSubscribedEvents()
     {
-        return [BeforeAuthorizationEvent::NAME => 'handleDeveloperAuthorization'];
+        return [BeforeAuthorization::NAME => 'handleDeveloperAuthorization'];
     }
 }

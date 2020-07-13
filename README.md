@@ -1,4 +1,4 @@
-# graph-ql-developer-module
+# oxid-esales/graphql-developer
 
 Provides some tools for GraphQL in the admin backend
 
