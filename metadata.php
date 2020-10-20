@@ -17,7 +17,7 @@ $sMetadataVersion = '2.0';
  * Module information
  */
 $aModule = [
-    'id'            => 'oe/graphql-developer',
+    'id'            => 'oe_graphql_developer',
     'title'         => [
         'de'        =>  'GraphQL Entwicklerwerkzeuge',
         'en'        =>  'GraphQL developer tools',
